@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif,
+    sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "Cascadia Code", "SF Mono",
+    monospace;
+}
+
+@theme {
+  /* ---- Paleta Atlas ---- */
+  --color-ink-50: #f0f3f9;
+  --color-ink-100: #dbe2ef;
+  --color-ink-200: #b6c2d9;
+  --color-ink-300: #8494b3;
+  --color-ink-400: #5b6d8f;
+  --color-ink-500: #3c4f74;
+  --color-ink-600: #24365b;
+  --color-ink-700: #172647;
+  --color-ink-800: #0e1832;
+  --color-ink-850: #0a1124;
+  --color-ink-900: #070d1b;
+  --color-ink-950: #04070f;
+
+  --color-brand-200: #b3c9ff;
+  --color-brand-300: #85a8ff;
+  --color-brand-400: #5685ff;
+  --color-brand-500: #2f63f7;
+  --color-brand-600: #244dd8;
+  --color-brand-700: #1e3daf;
+
+  --color-neon-200: #b1f8de;
+  --color-neon-300: #79f0c6;
+  --color-neon-400: #3fe4ac;
+  --color-neon-500: #1ecf94;
+  --color-neon-600: #0fae7c;
+
+  --color-paper: #f6f8fb;
+
+  /* ---- Animações ---- */
+  --animate-marquee: marquee 46s linear infinite;
+  --animate-spin-slower: spin-slower 32s linear infinite;
+  --animate-dash: dash 1.6s linear infinite;
+  --animate-ring-pulse: ring-pulse 3.4s ease-out infinite;
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slower {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  80% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  @apply bg-ink-950 font-sans text-ink-100 antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand-500);
+  color: #ffffff;
+}
+
+/* Malha geométrica de fundo — tom escuro */
+.bg-grid-dark {
+  background-image: linear-gradient(
+      to right,
+      rgb(255 255 255 / 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+/* Malha geométrica de fundo — tom claro */
+.bg-grid-light {
+  background-image: linear-gradient(
+      to right,
+      rgb(4 7 15 / 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(4 7 15 / 0.045) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
