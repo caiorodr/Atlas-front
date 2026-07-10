@@ -1,23 +1,30 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
-import markSrc from "@/assets/logo-mark.png";
-import wordmarkSrc from "@/assets/logo-wordmark.png";
+import { LOGO_MARK, LOGO_WORDMARK } from "./logo-paths";
 
 /*
- * Marca oficial Atlas 360 Averbadora — arte original fornecida pela empresa
- * (src/assets/logo-white.png), com o fundo removido para uso sobre o site.
- * logo-mark.png: emblema (A + swoosh + 360) · logo-wordmark.png: ATLAS/AVERBADORA
- * A arte é branca; em fundos claros usamos o filtro `invert`.
+ * Marca oficial Atlas 360 Averbadora — vetorizada a partir da arte original
+ * fornecida pela empresa (src/assets/logo-white.png). Os paths ficam em
+ * logo-paths.ts (gerado); os SVGs standalone estão em src/assets/logo-*.svg.
  */
 
 export function AtlasMark({ className }: { className?: string }) {
   return (
-    <Image
-      src={markSrc}
-      alt=""
-      aria-hidden="true"
-      className={cn("object-contain", className)}
-    />
+    <svg viewBox={LOGO_MARK.viewBox} className={className} aria-hidden="true">
+      <path d={LOGO_MARK.d} fill="currentColor" fillRule="evenodd" />
+    </svg>
+  );
+}
+
+export function AtlasWordmark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox={LOGO_WORDMARK.viewBox}
+      className={className}
+      role="img"
+      aria-label="Atlas Averbadora"
+    >
+      <path d={LOGO_WORDMARK.d} fill="currentColor" fillRule="evenodd" />
+    </svg>
   );
 }
 
@@ -32,21 +39,13 @@ export function AtlasLogo({
     <span
       className={cn(
         "inline-flex items-center gap-3",
-        tone === "light" && "invert",
+        tone === "dark" ? "text-white" : "text-ink-950",
         className
       )}
     >
-      <Image
-        src={markSrc}
-        alt=""
-        aria-hidden="true"
-        className="h-9 w-auto object-contain"
-      />
-      <Image
-        src={wordmarkSrc}
-        alt="Atlas Averbadora"
-        className="h-7 w-auto object-contain"
-      />
+      {/* proporções reais: emblema 491x402, wordmark 748x206 */}
+      <AtlasMark className="h-9 w-11 flex-none" />
+      <AtlasWordmark className="h-[26px] w-[94px] flex-none" />
     </span>
   );
 }
