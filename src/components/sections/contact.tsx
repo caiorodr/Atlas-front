@@ -14,8 +14,28 @@ const HIGHLIGHTS = [
   "Time que entende de consignado público, não só de software",
 ];
 
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
 export function Contact() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    setStatus("sending");
+    try {
+      const response = await fetch("/api/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <section id="contato" className="bg-paper py-24 lg:py-32">
@@ -56,7 +76,7 @@ export function Contact() {
         <Reveal delay={0.15}>
           <div className="rounded-3xl border border-ink-950/[0.08] bg-white p-7 shadow-[0_40px_100px_-48px_rgba(7,13,27,0.4)] sm:p-10">
             <AnimatePresence mode="wait">
-              {sent ? (
+              {status === "sent" ? (
                 <motion.div
                   key="success"
                   initial={{ opacity: 0, scale: 0.96 }}
@@ -75,7 +95,7 @@ export function Contact() {
                   </p>
                   <button
                     type="button"
-                    onClick={() => setSent(false)}
+                    onClick={() => setStatus("idle")}
                     className="mt-8 text-sm font-medium text-brand-600 transition-colors hover:text-brand-500"
                   >
                     Enviar novo contato
@@ -88,10 +108,7 @@ export function Contact() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.35 }}
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSent(true);
-                  }}
+                  onSubmit={handleSubmit}
                 >
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div className="sm:col-span-2">
@@ -151,10 +168,20 @@ export function Contact() {
                     variant="dark"
                     size="lg"
                     className="mt-8 w-full"
+                    disabled={status === "sending"}
                   >
-                    Enviar mensagem
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    {status === "sending" ? "Enviando…" : "Enviar mensagem"}
+                    {status !== "sending" && (
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    )}
                   </Button>
+
+                  {status === "error" && (
+                    <p className="mt-4 text-center text-sm text-red-500">
+                      Não foi possível enviar sua mensagem. Tente novamente ou
+                      escreva para desenvolvimento@atlasaverbadora.com.br.
+                    </p>
+                  )}
 
                   <p className="mt-4 text-center text-xs leading-relaxed text-ink-300">
                     Ao enviar, você concorda com nossa Política de Privacidade.

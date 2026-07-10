@@ -35,5 +35,5 @@ src/
 ## Pontos para personalizar antes de publicar
 
 - **Números da seção "Números"** — placeholders em `src/components/sections/metrics.tsx` (marcados com `TODO`).
-- **Envio do formulário** — hoje é apenas client-side (estado de sucesso); conectar a uma API/CRM.
+- **E-mail do formulário** — o formulário envia para `POST /api/contato`. Para os leads chegarem por e-mail, crie uma conta gratuita em [resend.com](https://resend.com), copie `.env.example` para `.env.local` e preencha `RESEND_API_KEY`. Sem a chave, os leads aparecem apenas no log do servidor.
 - **Razão social no rodapé** — confirmar se "Atlas Averbadora" é a razão social oficial (CNPJ já preenchido).
