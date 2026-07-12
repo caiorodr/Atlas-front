@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
 import { Reveal } from "@/components/shared/reveal";

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
@@ -16,6 +14,15 @@ const HIGHLIGHTS = [
 
 type FormStatus = "idle" | "sending" | "sent" | "error";
 
+/*
+ * Site estático (sem backend): o formulário envia via FormSubmit
+ * (https://formsubmit.co), que encaminha o lead por e-mail.
+ * No primeiro envio, o FormSubmit manda um e-mail de ativação
+ * para o endereço abaixo — é preciso confirmá-lo uma única vez.
+ */
+const FORM_ENDPOINT =
+  "https://formsubmit.co/ajax/desenvolvimento@atlasaverbadora.com.br";
+
 export function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
 
@@ -25,10 +32,15 @@ export function Contact() {
     const data = Object.fromEntries(new FormData(form).entries());
     setStatus("sending");
     try {
-      const response = await fetch("/api/contato", {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...data,
+          _subject: `Novo contato pelo site — ${data.name ?? ""}`,
+          _template: "table",
+          _captcha: "false",
+        }),
       });
       if (!response.ok) throw new Error(String(response.status));
       setStatus("sent");

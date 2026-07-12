@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -9,7 +9,7 @@ import { Differentials } from "@/components/sections/differentials";
 import { Metrics } from "@/components/sections/metrics";
 import { Contact } from "@/components/sections/contact";
 
-export default function Home() {
+export function App() {
   return (
     <>
       <Navbar />
