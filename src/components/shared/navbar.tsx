@@ -31,21 +31,21 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled || open
-          ? "border-b border-white/[0.06] bg-ink-950/85 backdrop-blur-xl"
+          ? "border-b border-emerald-800/15 bg-cream/90 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       )}
     >
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-8">
         <a href="#" aria-label="Atlas — voltar ao início">
-          <AtlasLogo />
+          <AtlasLogo tone="light" />
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-ink-200 transition-colors duration-200 hover:text-white"
+              className="font-mono text-[11px] uppercase tracking-[0.16em] text-emerald-900/70 transition-colors duration-200 hover:text-emerald-800"
             >
               {link.label}
             </a>
@@ -60,7 +60,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="-mr-2 p-2 text-white lg:hidden"
+          className="-mr-2 p-2 text-emerald-950 lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
         >
@@ -75,7 +75,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-white/[0.06] bg-ink-950/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-t border-emerald-800/10 bg-cream/95 backdrop-blur-xl lg:hidden"
           >
             <div className="space-y-1 px-6 py-6">
               {LINKS.map((link) => (
@@ -83,7 +83,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-base text-ink-100 transition-colors hover:bg-white/5 hover:text-white"
+                  className="block px-3 py-3 font-mono text-sm uppercase tracking-[0.14em] text-emerald-900 transition-colors hover:bg-emerald-800/[0.06] hover:text-emerald-800"
                 >
                   {link.label}
                 </a>

@@ -17,14 +17,14 @@ export function Eyebrow({
     <span
       className={cn(
         "inline-flex items-center gap-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.28em]",
-        tone === "dark" ? "text-neon-400" : "text-brand-600",
+        tone === "dark" ? "text-mint-300" : "text-emerald-700",
         className
       )}
     >
       <span
         className={cn(
           "h-1.5 w-1.5 flex-none",
-          tone === "dark" ? "bg-neon-400" : "bg-brand-600"
+          tone === "dark" ? "bg-mint-300" : "bg-emerald-700"
         )}
       />
       {children}
@@ -58,8 +58,8 @@ export function SectionHeading({
       {eyebrow && <Eyebrow tone={tone}>{eyebrow}</Eyebrow>}
       <h2
         className={cn(
-          "mt-5 font-display text-3xl font-semibold leading-[1.12] tracking-tight sm:text-4xl lg:text-[2.75rem]",
-          tone === "dark" ? "text-white" : "text-ink-950"
+          "mt-5 font-display text-3xl font-bold leading-[1.05] tracking-tight sm:text-4xl lg:text-[2.9rem]",
+          tone === "dark" ? "text-cream" : "text-emerald-950"
         )}
       >
         {title}
@@ -68,7 +68,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-5 text-base leading-relaxed sm:text-lg",
-            tone === "dark" ? "text-ink-300" : "text-ink-400"
+            tone === "dark" ? "text-mint-100/70" : "text-sage"
           )}
         >
           {lead}

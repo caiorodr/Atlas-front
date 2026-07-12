@@ -1,24 +1,31 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
+"use client";
+
+import {
+  useRef,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type MouseEvent,
+} from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.985]",
+  "group inline-flex cursor-pointer items-center justify-center gap-2.5 whitespace-nowrap font-mono text-xs font-medium uppercase tracking-[0.16em] transition-[background-color,border-color,color] duration-300 will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary:
-          "bg-brand-500 text-white shadow-[0_8px_24px_-12px_rgba(47,99,247,0.8)] hover:bg-brand-400 hover:shadow-[0_12px_40px_-12px_rgba(47,99,247,0.9)]",
+        primary: "bg-emerald-800 text-cream hover:bg-emerald-950",
+        dark: "bg-emerald-950 text-cream hover:bg-emerald-800",
+        mint: "bg-mint-300 text-emerald-950 hover:bg-mint-400",
         outline:
-          "border border-white/15 bg-white/[0.02] text-white hover:border-white/35 hover:bg-white/[0.06]",
-        dark: "bg-ink-950 text-white hover:bg-ink-700",
+          "border border-mint-300/30 text-mint-100 hover:border-mint-300/70 hover:bg-mint-300/10",
         outlineLight:
-          "border border-ink-950/15 text-ink-950 hover:border-ink-950/35 hover:bg-ink-950/[0.04]",
+          "border border-emerald-800/30 text-emerald-900 hover:border-emerald-800/70 hover:bg-emerald-800/[0.06]",
       },
       size: {
-        sm: "h-9 px-4 text-sm",
-        md: "h-11 px-6 text-sm",
-        lg: "h-12 px-7 text-[15px]",
+        sm: "h-9 px-4",
+        md: "h-11 px-6",
+        lg: "h-13 px-8",
       },
     },
     defaultVariants: {
@@ -33,10 +40,60 @@ export type ButtonProps = VariantProps<typeof buttonVariants> & {
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   AnchorHTMLAttributes<HTMLAnchorElement>;
 
+let finePointer: boolean | null = null;
+
+/*
+ * Botão magnético: desloca-se suavemente na direção do cursor (só transform,
+ * transição CSS composta — 60fps) e volta ao centro ao sair. Desativado em
+ * telas de toque.
+ */
 export function Button({ className, variant, size, href, ...props }: ButtonProps) {
-  const classes = cn(buttonVariants({ variant, size }), className);
-  if (href) {
-    return <a href={href} className={classes} {...props} />;
+  const ref = useRef<HTMLElement | null>(null);
+
+  function onMouseMove(event: MouseEvent) {
+    if (finePointer === null) {
+      finePointer = window.matchMedia("(pointer: fine)").matches;
+    }
+    const el = ref.current;
+    if (!el || !finePointer) return;
+    const rect = el.getBoundingClientRect();
+    const dx = event.clientX - (rect.left + rect.width / 2);
+    const dy = event.clientY - (rect.top + rect.height / 2);
+    el.style.transform = `translate(${dx * 0.16}px, ${dy * 0.3}px)`;
+    el.style.transition = "transform 0.18s cubic-bezier(0.22, 1, 0.36, 1)";
   }
-  return <button className={classes} {...props} />;
+
+  function onMouseLeave() {
+    const el = ref.current;
+    if (!el) return;
+    el.style.transform = "";
+    el.style.transition = "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)";
+  }
+
+  const classes = cn(buttonVariants({ variant, size }), className);
+  const magnetic = { onMouseMove, onMouseLeave };
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={classes}
+        ref={(node) => {
+          ref.current = node;
+        }}
+        {...magnetic}
+        {...props}
+      />
+    );
+  }
+  return (
+    <button
+      className={classes}
+      ref={(node) => {
+        ref.current = node;
+      }}
+      {...magnetic}
+      {...props}
+    />
+  );
 }

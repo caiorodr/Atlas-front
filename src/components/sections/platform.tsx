@@ -21,10 +21,10 @@ function StatusPill({
   return (
     <span
       className={cn(
-        "rounded-full px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide",
-        tone === "green" && "bg-neon-500/10 text-neon-600",
-        tone === "blue" && "bg-brand-500/10 text-brand-600",
-        tone === "gray" && "bg-ink-100/60 text-ink-400"
+        "px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wide",
+        tone === "green" && "bg-mint-300/50 text-emerald-800",
+        tone === "blue" && "bg-emerald-800/10 text-emerald-800",
+        tone === "gray" && "bg-emerald-950/[0.05] text-sage"
       )}
     >
       {children}
@@ -39,46 +39,46 @@ function OrgaoMock() {
     { id: "#57.994", bank: "Banco Gama", value: "—", status: "Quitado", tone: "gray" as const },
   ];
   return (
-    <div className="overflow-hidden rounded-2xl border border-ink-950/[0.08] bg-white shadow-[0_32px_80px_-40px_rgba(7,13,27,0.35)]">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-ink-950/[0.06] px-5 py-4">
-        <span className="text-sm font-medium text-ink-950">
+    <div className="overflow-hidden border border-emerald-800/20 bg-paper shadow-[0_32px_80px_-40px_rgba(3,35,26,0.4)]">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-emerald-800/15 px-5 py-4">
+        <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-emerald-950">
           Painel do convênio
         </span>
-        <span className="flex items-center gap-1.5 rounded-full bg-neon-500/10 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-neon-600">
-          <span className="h-1 w-1 rounded-full bg-neon-500" />
+        <span className="flex items-center gap-1.5 bg-mint-300/50 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-emerald-800">
+          <span className="h-1 w-1 bg-emerald-700" />
           Folha 07/2026 · sincronizada
         </span>
       </div>
-      <div className="space-y-5 p-5">
+      <div className="space-y-5 p-4 sm:p-5">
         <div>
           <div className="flex items-baseline justify-between">
-            <span className="text-xs text-ink-400">
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-sage">
               Margem consignável utilizada
             </span>
-            <span className="font-display text-xl font-semibold text-ink-950">
+            <span className="font-display text-xl font-bold text-emerald-950">
               62,4%
             </span>
           </div>
-          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-ink-50">
-            <div className="h-full w-[62%] rounded-full bg-gradient-to-r from-brand-500 to-neon-400" />
+          <div className="mt-2 h-1.5 overflow-hidden bg-emerald-800/10">
+            <div className="h-full w-[62%] bg-emerald-800" />
           </div>
         </div>
-        <div className="divide-y divide-ink-950/[0.05] rounded-xl border border-ink-950/[0.06]">
+        <div className="divide-y divide-emerald-800/10 border border-emerald-800/15">
           {contracts.map((contract) => (
             <div
               key={contract.id}
-              className="flex items-center justify-between gap-3 px-4 py-3"
+              className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 px-3 py-3 sm:px-4"
             >
               <div className="flex min-w-0 items-baseline gap-2.5">
-                <span className="font-mono text-xs text-ink-300">
+                <span className="font-mono text-xs text-sage">
                   {contract.id}
                 </span>
-                <span className="truncate text-sm text-ink-950">
+                <span className="truncate text-sm text-emerald-950">
                   {contract.bank}
                 </span>
               </div>
-              <div className="flex flex-none items-center gap-3">
-                <span className="hidden text-sm text-ink-500 sm:block">
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="hidden font-mono text-xs text-sage sm:block">
                   {contract.value}
                 </span>
                 <StatusPill tone={contract.tone}>{contract.status}</StatusPill>
@@ -86,9 +86,11 @@ function OrgaoMock() {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-between rounded-xl bg-ink-50/70 px-4 py-3">
-          <span className="text-xs text-ink-400">Trilha de auditoria</span>
-          <span className="font-mono text-[11px] text-ink-500">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border border-dashed border-emerald-800/25 px-3 py-3 sm:px-4">
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-sage">
+            Trilha de auditoria
+          </span>
+          <span className="font-mono text-[11px] text-emerald-800">
             sha-256 · 9f3a…c21b
           </span>
         </div>
@@ -99,50 +101,50 @@ function OrgaoMock() {
 
 function BancoMock() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-ink-900 shadow-[0_32px_80px_-40px_rgba(7,13,27,0.7)]">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.07] px-5 py-4">
-        <span className="font-mono text-xs text-ink-200">
-          <span className="text-neon-400">POST</span> /v1/margens/consulta
+    <div className="overflow-hidden border border-mint-300/20 bg-emerald-950 shadow-[0_32px_80px_-40px_rgba(3,35,26,0.7)]">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-mint-300/15 px-5 py-4">
+        <span className="font-mono text-xs text-mint-100/80">
+          <span className="text-mint-400">POST</span> /v1/margens/consulta
         </span>
-        <span className="rounded-full bg-neon-500/10 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-neon-400">
+        <span className="bg-mint-300/10 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-mint-300">
           200 OK · 84 ms
         </span>
       </div>
       <div className="px-5 py-5 font-mono text-[12.5px] leading-[1.95]">
-        <div className="text-ink-400">{"{"}</div>
+        <div className="text-mint-100/40">{"{"}</div>
         <div className="pl-4">
-          <span className="text-brand-300">&quot;cpf&quot;</span>
-          <span className="text-ink-400">: </span>
-          <span className="text-neon-300">&quot;***.457.890-**&quot;</span>
-          <span className="text-ink-400">,</span>
+          <span className="text-mint-300">&quot;cpf&quot;</span>
+          <span className="text-mint-100/40">: </span>
+          <span className="text-mint-100/80">&quot;***.457.890-**&quot;</span>
+          <span className="text-mint-100/40">,</span>
         </div>
         <div className="pl-4">
-          <span className="text-brand-300">&quot;convenio&quot;</span>
-          <span className="text-ink-400">: </span>
-          <span className="text-neon-300">&quot;prefeitura-0042&quot;</span>
-          <span className="text-ink-400">,</span>
+          <span className="text-mint-300">&quot;convenio&quot;</span>
+          <span className="text-mint-100/40">: </span>
+          <span className="text-mint-100/80">&quot;prefeitura-0042&quot;</span>
+          <span className="text-mint-100/40">,</span>
         </div>
         <div className="pl-4">
-          <span className="text-brand-300">&quot;margem_disponivel&quot;</span>
-          <span className="text-ink-400">: </span>
-          <span className="text-white">812.44</span>
-          <span className="text-ink-400">,</span>
+          <span className="text-mint-300">&quot;margem_disponivel&quot;</span>
+          <span className="text-mint-100/40">: </span>
+          <span className="text-cream">812.44</span>
+          <span className="text-mint-100/40">,</span>
         </div>
         <div className="pl-4">
-          <span className="text-brand-300">&quot;margem_total&quot;</span>
-          <span className="text-ink-400">: </span>
-          <span className="text-white">1450.00</span>
-          <span className="text-ink-400">,</span>
+          <span className="text-mint-300">&quot;margem_total&quot;</span>
+          <span className="text-mint-100/40">: </span>
+          <span className="text-cream">1450.00</span>
+          <span className="text-mint-100/40">,</span>
         </div>
         <div className="pl-4">
-          <span className="text-brand-300">&quot;atualizado_em&quot;</span>
-          <span className="text-ink-400">: </span>
-          <span className="text-neon-300">&quot;2026-07-10T14:32:07Z&quot;</span>
+          <span className="text-mint-300">&quot;atualizado_em&quot;</span>
+          <span className="text-mint-100/40">: </span>
+          <span className="text-mint-100/80">&quot;2026-07-10T14:32:07Z&quot;</span>
         </div>
-        <div className="text-ink-400">{"}"}</div>
+        <div className="text-mint-100/40">{"}"}</div>
       </div>
-      <div className="flex items-center gap-2 border-t border-white/[0.07] px-5 py-3.5 font-mono text-[11px] text-ink-300">
-        <span className="h-1.5 w-1.5 flex-none rounded-full bg-brand-400" />
+      <div className="flex items-center gap-2 border-t border-mint-300/15 px-5 py-3.5 font-mono text-[11px] text-mint-100/60">
+        <span className="h-1.5 w-1.5 flex-none animate-pulse-dot bg-mint-400" />
         webhook · averbacao.confirmada · entregue em 120 ms
       </div>
     </div>
@@ -151,23 +153,25 @@ function BancoMock() {
 
 function ServidorMock() {
   return (
-    <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-[1.8rem] border border-ink-950/[0.08] bg-white shadow-[0_32px_80px_-40px_rgba(7,13,27,0.35)]">
-      <div className="border-b border-ink-950/[0.06] px-6 py-5">
-        <span className="text-xs text-ink-400">Margem disponível</span>
+    <div className="mx-auto w-full max-w-[340px] overflow-hidden border border-emerald-800/20 bg-paper shadow-[0_32px_80px_-40px_rgba(3,35,26,0.4)]">
+      <div className="border-b border-emerald-800/15 px-6 py-5">
+        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-sage">
+          Margem disponível
+        </span>
         <div className="mt-1 flex flex-wrap items-baseline gap-2">
-          <span className="font-display text-3xl font-semibold text-ink-950">
+          <span className="font-display text-3xl font-bold text-emerald-950">
             R$ 812,44
           </span>
-          <span className="rounded-full bg-neon-500/10 px-2 py-0.5 font-mono text-[10px] text-neon-600">
+          <span className="bg-mint-300/50 px-2 py-0.5 font-mono text-[10px] text-emerald-800">
             atualizado agora
           </span>
         </div>
-        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-ink-50">
-          <div className="h-full w-[56%] rounded-full bg-gradient-to-r from-brand-500 to-neon-400" />
+        <div className="mt-3 h-1.5 overflow-hidden bg-emerald-800/10">
+          <div className="h-full w-[56%] bg-emerald-800" />
         </div>
       </div>
       <div className="space-y-3 px-6 py-5">
-        <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400">
+        <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-sage">
           Contratos ativos
         </span>
         {[
@@ -176,20 +180,22 @@ function ServidorMock() {
         ].map((contract) => (
           <div
             key={contract.bank}
-            className="flex items-center justify-between rounded-xl border border-ink-950/[0.06] px-4 py-3"
+            className="flex items-center justify-between border border-emerald-800/15 px-4 py-3"
           >
             <div>
-              <span className="block text-sm font-medium text-ink-950">
+              <span className="block text-sm font-medium text-emerald-950">
                 {contract.bank}
               </span>
-              <span className="text-xs text-ink-400">{contract.detail}</span>
+              <span className="text-xs text-sage">{contract.detail}</span>
             </div>
-            <span className="text-sm text-ink-500">{contract.value}</span>
+            <span className="font-mono text-sm text-emerald-800">
+              {contract.value}
+            </span>
           </div>
         ))}
         <button
           type="button"
-          className="mt-1 w-full rounded-xl bg-ink-950 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-ink-700"
+          className="mt-1 w-full bg-emerald-800 py-3 font-mono text-xs uppercase tracking-[0.14em] text-cream transition-colors duration-300 hover:bg-emerald-950"
         >
           Autorizar nova averbação
         </button>
@@ -305,7 +311,7 @@ export function Platform() {
   const tab = TABS[active];
 
   return (
-    <section id="plataforma" className="bg-white py-24 lg:py-32">
+    <section id="plataforma" className="bg-cream py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           align="center"
@@ -315,21 +321,23 @@ export function Platform() {
         />
 
         <Reveal delay={0.1} className="mt-12 flex justify-center">
-          <div className="no-scrollbar flex max-w-full gap-1 overflow-x-auto rounded-full border border-ink-950/10 bg-paper p-1.5">
+          <div className="no-scrollbar flex max-w-full gap-1 overflow-x-auto border border-emerald-800/20 bg-parch p-1.5">
             {TABS.map((t, i) => (
               <button
                 key={t.id}
                 type="button"
                 onClick={() => setActive(i)}
                 className={cn(
-                  "relative whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300",
-                  i === active ? "text-white" : "text-ink-500 hover:text-ink-950"
+                  "relative whitespace-nowrap px-5 py-2.5 font-mono text-xs uppercase tracking-[0.1em] transition-colors duration-300",
+                  i === active
+                    ? "text-cream"
+                    : "text-emerald-900/60 hover:text-emerald-950"
                 )}
               >
                 {i === active && (
                   <motion.span
                     layoutId="platform-active-pill"
-                    className="absolute inset-0 rounded-full bg-ink-950"
+                    className="absolute inset-0 bg-emerald-800"
                     transition={{ type: "spring", bounce: 0.18, duration: 0.6 }}
                   />
                 )}
@@ -349,27 +357,27 @@ export function Platform() {
               transition={{ duration: 0.45, ease: EASE }}
               className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16"
             >
-              <div>
-                <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-brand-600">
+              <div className="min-w-0">
+                <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-emerald-700">
                   {tab.module}
                 </span>
-                <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight text-ink-950 sm:text-3xl">
+                <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-emerald-950 sm:text-3xl">
                   {tab.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-ink-400">
+                <p className="mt-4 leading-relaxed text-sage">
                   {tab.description}
                 </p>
                 <ul className="mt-9 space-y-5">
                   {tab.features.map((feature) => (
                     <li key={feature.title} className="flex gap-4">
-                      <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-md border border-brand-500/20 bg-brand-500/10">
-                        <Check className="h-3.5 w-3.5 text-brand-600" />
+                      <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center border border-emerald-800/25 bg-mint-300/40">
+                        <Check className="h-3.5 w-3.5 text-emerald-800" />
                       </span>
                       <div>
-                        <span className="font-medium text-ink-950">
+                        <span className="font-medium text-emerald-950">
                           {feature.title}
                         </span>
-                        <p className="mt-1 text-sm leading-relaxed text-ink-400">
+                        <p className="mt-1 text-sm leading-relaxed text-sage">
                           {feature.description}
                         </p>
                       </div>
@@ -378,8 +386,7 @@ export function Platform() {
                 </ul>
               </div>
 
-              <div className="relative rounded-3xl border border-ink-950/[0.06] bg-gradient-to-br from-ink-50 to-paper p-5 sm:p-8 lg:p-10">
-                <div className="bg-grid-light absolute inset-0 rounded-3xl opacity-50" />
+              <div className="bg-ruled relative min-w-0 border border-emerald-800/15 bg-parch p-4 sm:p-8 lg:p-10">
                 <div className="relative">{tab.mock}</div>
               </div>
             </motion.div>

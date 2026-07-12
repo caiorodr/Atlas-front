@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/shared/navbar";
+import { TypeMarquee } from "@/components/shared/type-marquee";
 import { Footer } from "@/components/shared/footer";
 import { Hero } from "@/components/sections/hero";
 import { Problem } from "@/components/sections/problem";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <TypeMarquee />
         <Problem />
         <Platform />
         <HowItWorks />

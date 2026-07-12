@@ -1,6 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono, Sora } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, Inter } from "next/font/google";
+import { CustomCursor } from "@/components/shared/custom-cursor";
+import { Grain } from "@/components/shared/grain";
 import "@/styles/globals.css";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+  axes: ["wdth"],
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,15 +17,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const sora = Sora({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-sora",
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -34,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#04070f",
+  themeColor: "#FFF8E7",
 };
 
 export default function RootLayout({
@@ -43,11 +47,15 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${sora.variable} ${jetbrains.variable}`}
+      className={`${archivo.variable} ${inter.variable} ${plexMono.variable}`}
     >
       {/* suppressHydrationWarning: extensões de navegador (ex.: ColorZilla) injetam
           atributos no <body> antes da hidratação e disparariam falso aviso */}
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <Grain />
+        <CustomCursor />
+      </body>
     </html>
   );
 }

@@ -44,9 +44,9 @@ export function Metrics() {
   return (
     <section
       id="numeros"
-      className="relative overflow-hidden bg-ink-950 py-24 lg:py-32"
+      className="relative overflow-hidden bg-emerald-950 py-24 lg:py-32"
     >
-      <div className="absolute -bottom-48 left-[15%] h-[420px] w-[560px] rounded-full bg-brand-600/15 blur-[150px]" />
+      <div className="bg-ruled-dark absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_25%)]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
@@ -60,16 +60,16 @@ export function Metrics() {
             <Reveal
               key={metric.label}
               delay={i * 0.08}
-              className="border-l border-white/10 pl-6"
+              className="border-l border-mint-300/20 pl-6"
             >
-              <div className="font-display text-[2.6rem] font-semibold leading-none tracking-tight text-white lg:text-5xl">
+              <div className="font-display text-[2.6rem] font-bold leading-none tracking-tight text-cream lg:text-5xl">
                 {metric.prefix}
                 <CountUp value={metric.value} decimals={metric.decimals} />
                 {metric.suffix && (
-                  <span className="text-brand-300">{metric.suffix}</span>
+                  <span className="text-mint-400">{metric.suffix}</span>
                 )}
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-ink-300">
+              <p className="mt-4 text-sm leading-relaxed text-mint-100/60">
                 {metric.label}
               </p>
             </Reveal>

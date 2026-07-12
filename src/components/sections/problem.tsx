@@ -30,7 +30,7 @@ const PROBLEMS = [
 
 export function Problem() {
   return (
-    <section id="problema" className="bg-paper py-24 lg:py-32">
+    <section id="problema" className="bg-parch py-24 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:px-8">
         <div>
           <SectionHeading
@@ -43,15 +43,15 @@ export function Problem() {
         <ol className="lg:pt-2">
           {PROBLEMS.map((problem, i) => (
             <Reveal key={problem.number} delay={i * 0.08}>
-              <li className="group grid grid-cols-[auto_1fr] gap-6 border-t border-ink-950/10 py-8 transition-colors duration-300 last:border-b sm:gap-10 lg:py-9">
-                <span className="pt-1 font-mono text-sm text-ink-300 transition-colors duration-300 group-hover:text-brand-600">
+              <li className="group grid grid-cols-[auto_1fr] gap-6 border-t border-emerald-800/15 py-8 transition-colors duration-300 last:border-b sm:gap-10 lg:py-9">
+                <span className="pt-1 font-display text-xl font-bold text-emerald-800/30 transition-colors duration-300 group-hover:text-emerald-700">
                   {problem.number}
                 </span>
                 <div>
-                  <h3 className="font-display text-xl font-semibold tracking-tight text-ink-950">
+                  <h3 className="font-display text-xl font-bold tracking-tight text-emerald-950">
                     {problem.title}
                   </h3>
-                  <p className="mt-2.5 leading-relaxed text-ink-400">
+                  <p className="mt-2.5 leading-relaxed text-sage">
                     {problem.description}
                   </p>
                 </div>

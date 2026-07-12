@@ -8,7 +8,7 @@ export function Input({
   return (
     <input
       className={cn(
-        "h-11 w-full rounded-xl border border-ink-950/10 bg-white px-4 text-[15px] text-ink-950 placeholder:text-ink-300 transition-all duration-200 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10",
+        "h-11 w-full border border-emerald-800/20 bg-paper px-4 text-[15px] text-emerald-950 placeholder:text-sage/60 transition-all duration-200 focus:border-emerald-800 focus:outline-none focus:ring-4 focus:ring-mint-300/30",
         className
       )}
       {...props}
@@ -23,7 +23,7 @@ export function Label({
   return (
     <label
       className={cn(
-        "mb-2 block font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-ink-400",
+        "mb-2 block font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-emerald-700",
         className
       )}
       {...props}

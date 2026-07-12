@@ -73,38 +73,33 @@ const LOG_LINES = [
 
 export function Security() {
   return (
-    <section
-      id="tecnologia"
-      className="relative overflow-hidden border-t border-white/[0.05] bg-ink-950 py-24 lg:py-32"
-    >
+    <section id="tecnologia" className="relative bg-cream py-24 lg:py-32">
       {/* âncora para o link "Segurança" */}
       <span id="seguranca" className="absolute -top-20" aria-hidden="true" />
 
-      <div className="absolute -top-40 right-[10%] h-[420px] w-[420px] rounded-full bg-brand-600/15 blur-[140px]" />
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
-          tone="dark"
           eyebrow="Tecnologia e segurança"
           title="Construída para operar dados financeiros sensíveis"
           lead="Arquitetura de nível bancário, auditável de ponta a ponta — porque confiança não se promete, se comprova."
         />
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
-          {ITEMS.map((item, i) => (
+        <div className="mt-16 grid gap-px overflow-hidden border border-emerald-800/15 bg-emerald-800/15 sm:grid-cols-2 lg:grid-cols-3">
+          {ITEMS.map((item) => (
             <Reveal
               key={item.title}
-              delay={i * 0.05}
-              className="group bg-ink-950 p-8 transition-colors duration-300 hover:bg-ink-900"
+              className="group bg-cream p-8 transition-colors duration-300 hover:bg-paper"
             >
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] transition-colors duration-300 group-hover:border-brand-400/40">
-                <item.icon className="h-[18px] w-[18px] text-brand-300" />
+              <span className="flex h-10 w-10 items-center justify-center border border-emerald-800/20 bg-mint-300/30 transition-colors duration-300 group-hover:border-emerald-800/50">
+                <item.icon className="h-[18px] w-[18px] text-emerald-800" />
               </span>
-              <h3 className="mt-6 font-medium text-white">{item.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-ink-300">
+              <h3 className="mt-6 font-display text-lg font-bold tracking-tight text-emerald-950">
+                {item.title}
+              </h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-sage">
                 {item.description}
               </p>
-              <span className="mt-5 block font-mono text-[10px] uppercase tracking-[0.18em] text-neon-400/80">
+              <span className="mt-5 block font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-700">
                 {item.tag}
               </span>
             </Reveal>
@@ -113,14 +108,14 @@ export function Security() {
 
         {/* Trilha de auditoria em tempo real */}
         <Reveal delay={0.15} className="mt-14">
-          <div className="relative overflow-hidden border-y border-white/[0.07] py-4 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-            <div className="flex w-max animate-marquee gap-14">
+          <div className="relative overflow-hidden border-y border-emerald-800/15 py-4 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+            <div className="flex w-max animate-ticker gap-14">
               {[...LOG_LINES, ...LOG_LINES].map((line, i) => (
                 <span
                   key={i}
-                  className="flex items-center gap-3 whitespace-nowrap font-mono text-xs text-ink-300"
+                  className="flex items-center gap-3 whitespace-nowrap font-mono text-xs text-emerald-800/70"
                 >
-                  <span className="h-1 w-1 flex-none bg-neon-400" />
+                  <span className="h-1 w-1 flex-none bg-mint-500" />
                   {line}
                 </span>
               ))}

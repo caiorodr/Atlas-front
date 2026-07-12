@@ -39,7 +39,7 @@ export function AtlasLogo({
     <span
       className={cn(
         "inline-flex items-center gap-3",
-        tone === "dark" ? "text-white" : "text-ink-950",
+        tone === "dark" ? "text-cream" : "text-emerald-950",
         className
       )}
     >
