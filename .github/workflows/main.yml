@@ -29,5 +29,8 @@ jobs:
           user: ${{ secrets.USER }}
           password: ${{ secrets.PASS }}
           localDir: "dist"
-          # remoteDir: se os arquivos não aparecerem na raiz do site, aponte
-          # para a pasta pública da hospedagem (ex.: "public_html").
+          # Locaweb costuma exigir FTPS. A ação já ignora o certificado.
+          forceSsl: "true"
+          # Destino padrão da ação é "public_html" (hospedagem Linux).
+          # Hospedagem Windows: troque para "web".
+          remoteDir: "public_html"
