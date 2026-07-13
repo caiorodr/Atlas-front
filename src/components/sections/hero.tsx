@@ -27,8 +27,8 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink-950 pb-20 pt-36 lg:pb-28 lg:pt-44">
       <div className="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,black_20%,transparent_75%)]" />
-      <div className="absolute -top-64 left-1/2 h-[640px] w-[960px] -translate-x-1/2 rounded-full bg-brand-600/25 blur-[160px]" />
-      <div className="absolute right-[-12%] top-1/2 h-96 w-96 rounded-full bg-neon-500/[0.07] blur-[120px]" />
+      <div className="pointer-events-none absolute -top-64 left-1/2 h-[640px] w-[960px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(36,77,216,0.30),transparent)]" />
+      <div className="pointer-events-none absolute right-[-12%] top-1/2 h-96 w-96 rounded-full bg-[radial-gradient(closest-side,rgba(30,207,148,0.10),transparent)]" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-8">
         <motion.div

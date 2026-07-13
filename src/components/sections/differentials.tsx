@@ -76,8 +76,8 @@ export function Differentials() {
 
             {/* Destaque: app mobile em desenvolvimento */}
             <div className="relative flex flex-col justify-between gap-8 overflow-hidden bg-ink-950 p-8 sm:col-span-2 lg:col-span-3 lg:flex-row lg:items-center lg:p-10">
-              <div className="absolute -right-24 -top-32 h-72 w-72 rounded-full bg-brand-600/25 blur-[110px]" />
-              <div className="absolute -bottom-32 left-1/3 h-56 w-56 rounded-full bg-neon-500/[0.08] blur-[100px]" />
+              <div className="pointer-events-none absolute -right-24 -top-32 h-72 w-72 rounded-full bg-[radial-gradient(closest-side,rgba(36,77,216,0.30),transparent)]" />
+              <div className="pointer-events-none absolute -bottom-32 left-1/3 h-56 w-56 rounded-full bg-[radial-gradient(closest-side,rgba(30,207,148,0.12),transparent)]" />
 
               <div className="relative max-w-xl">
                 <div className="flex items-center gap-3.5">

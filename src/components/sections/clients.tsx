@@ -50,7 +50,7 @@ export function Clients() {
       id="clientes"
       className="relative overflow-hidden bg-ink-950 py-24 lg:py-32"
     >
-      <div className="absolute -top-40 right-[10%] h-[380px] w-[520px] rounded-full bg-brand-600/12 blur-[150px]" />
+      <div className="pointer-events-none absolute -top-40 right-[10%] h-[380px] w-[520px] rounded-full bg-[radial-gradient(closest-side,rgba(36,77,216,0.15),transparent)]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading

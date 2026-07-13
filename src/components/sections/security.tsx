@@ -80,7 +80,7 @@ export function Security() {
       {/* âncora para o link "Segurança" */}
       <span id="seguranca" className="absolute -top-20" aria-hidden="true" />
 
-      <div className="absolute -top-40 right-[10%] h-[420px] w-[420px] rounded-full bg-brand-600/15 blur-[140px]" />
+      <div className="pointer-events-none absolute -top-40 right-[10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(36,77,216,0.18),transparent)]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading

@@ -44,7 +44,7 @@ export function Metrics() {
       id="numeros"
       className="relative overflow-hidden bg-ink-950 py-24 lg:py-32"
     >
-      <div className="absolute -bottom-48 left-[15%] h-[420px] w-[560px] rounded-full bg-brand-600/15 blur-[150px]" />
+      <div className="pointer-events-none absolute -bottom-48 left-[15%] h-[420px] w-[560px] rounded-full bg-[radial-gradient(closest-side,rgba(36,77,216,0.18),transparent)]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
