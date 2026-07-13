@@ -7,6 +7,7 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { Security } from "@/components/sections/security";
 import { Differentials } from "@/components/sections/differentials";
 import { Metrics } from "@/components/sections/metrics";
+import { Clients } from "@/components/sections/clients";
 import { Contact } from "@/components/sections/contact";
 
 export function App() {
@@ -21,6 +22,7 @@ export function App() {
         <Security />
         <Differentials />
         <Metrics />
+        <Clients />
         <Contact />
       </main>
       <Footer />

@@ -3,12 +3,12 @@ import { animate, useInView } from "framer-motion";
 import { Reveal } from "@/components/shared/reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
 
-/* TODO: substituir pelos números oficiais da Atlas antes da publicação */
+/* TODO: dados ilustrativos — substituir pelos números oficiais da Atlas antes da publicação */
 const METRICS = [
-  { prefix: "+", value: 100, decimals: 0, suffix: "", label: "municípios conectados à plataforma" },
-  { prefix: "R$ ", value: 2.4, decimals: 1, suffix: " bi", label: "em operações processadas" },
-  { prefix: "+", value: 30, decimals: 0, suffix: "", label: "instituições financeiras integradas" },
-  { prefix: "+", value: 500, decimals: 0, suffix: " mil", label: "servidores públicos atendidos" },
+  { prefix: "+", value: 12, decimals: 0, suffix: "", label: "municípios conectados à plataforma" },
+  { prefix: "R$ ", value: 180, decimals: 0, suffix: " mi", label: "em operações processadas" },
+  { prefix: "+", value: 8, decimals: 0, suffix: "", label: "instituições financeiras integradas" },
+  { prefix: "+", value: 25, decimals: 0, suffix: " mil", label: "servidores públicos atendidos" },
 ];
 
 function CountUp({ value, decimals = 0 }: { value: number; decimals?: number }) {
@@ -50,7 +50,7 @@ export function Metrics() {
         <SectionHeading
           tone="dark"
           eyebrow="Números"
-          title="Uma operação que cresce em escala nacional"
+          title="Uma operação em expansão pelo país"
         />
 
         <div className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
