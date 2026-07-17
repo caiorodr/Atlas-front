@@ -6,6 +6,8 @@ import brejinho from "@/assets/logos/brejinho-de-nazare-Tocantins-TO.png";
 import capistrano from "@/assets/logos/capistrano-Ceará-CE.png";
 import cariri from "@/assets/logos/cariri-do-tocantins-Tocantins-TO.png";
 import triunfo from "@/assets/logos/triunfo-potiguar-Rio-Grande-do-Norte-RN.png";
+import joaoCamara from "@/assets/logos/joão-câmara-RN.png";
+import majorSales from "@/assets/logos/maior-sales-RN.png";
 
 type Client = { src: string; name: string; uf: string };
 
@@ -15,6 +17,8 @@ const CLIENTS: Client[] = [
   { src: capistrano, name: "Capistrano", uf: "CE" },
   { src: cariri, name: "Cariri do Tocantins", uf: "TO" },
   { src: triunfo, name: "Triunfo Potiguar", uf: "RN" },
+  { src: joaoCamara, name: "João Câmara", uf: "RN" },
+  { src: majorSales, name: "Major Sales", uf: "RN" },
 ];
 
 /* Repete a lista para preencher telas largas e permitir loop contínuo (-50%). */
