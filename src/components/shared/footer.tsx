@@ -16,6 +16,7 @@ const COLUMNS = [
       { label: "Segurança", href: "/#seguranca" },
       { label: "Contato", href: "/#contato" },
       { label: "Política de Privacidade", href: "/privacy" },
+      { label: "Exclusão de Conta e Dados", href: "/exclusao-de-conta" },
     ],
   },
 ];
