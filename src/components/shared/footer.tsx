@@ -4,18 +4,18 @@ const COLUMNS = [
   {
     title: "Plataforma",
     links: [
-      { label: "Soluções", href: "#plataforma" },
-      { label: "Como funciona", href: "#como-funciona" },
-      { label: "Números", href: "#numeros" },
+      { label: "Soluções", href: "/#plataforma" },
+      { label: "Como funciona", href: "/#como-funciona" },
+      { label: "Números", href: "/#numeros" },
     ],
   },
   {
     title: "Institucional",
     links: [
-      { label: "Tecnologia", href: "#tecnologia" },
-      { label: "Segurança", href: "#seguranca" },
-      { label: "Contato", href: "#contato" },
-      { label: "Política de Privacidade", href: "#" },
+      { label: "Tecnologia", href: "/#tecnologia" },
+      { label: "Segurança", href: "/#seguranca" },
+      { label: "Contato", href: "/#contato" },
+      { label: "Política de Privacidade", href: "/privacy" },
     ],
   },
 ];

@@ -196,8 +196,14 @@ export function Contact() {
                   )}
 
                   <p className="mt-4 text-center text-xs leading-relaxed text-ink-300">
-                    Ao enviar, você concorda com nossa Política de Privacidade.
-                    Seus dados são tratados conforme a LGPD.
+                    Ao enviar, você concorda com nossa{" "}
+                    <a
+                      href="/privacy"
+                      className="underline underline-offset-2 hover:text-white"
+                    >
+                      Política de Privacidade
+                    </a>
+                    . Seus dados são tratados conforme a LGPD.
                   </p>
                 </motion.form>
               )}
